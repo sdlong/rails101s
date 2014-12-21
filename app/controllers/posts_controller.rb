@@ -7,11 +7,12 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = @group.posts.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 
   def create
     @post = @group.posts.build(post_params)
+    @post.author = current_user
 
     if @post.save
       redirect_to group_path(@group), notice: "新增文章成功！"
@@ -22,6 +23,7 @@ class PostsController < ApplicationController
 
   def update
     @post = @group.posts.find(params[:id])
+    @post = current_user.posts.find(params[:id])
 
     if @post.update(post_params)
       redirect_to group_path(@group), notice: "文章修改成功！"
@@ -32,6 +34,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = @group.posts.find(params[:id])
+    @post = current_user.posts.find(params[:id])
 
     @post.destroy
     redirect_to group_path(@group), alert: "文章已刪除"
