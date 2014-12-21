@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "bootstrap-sass"
 gem "simple_form"
+gem "devise", "~> 3.4.1", github: "plataformatec/devise", branch: "master"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
