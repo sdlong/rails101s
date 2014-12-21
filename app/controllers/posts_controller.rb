@@ -3,7 +3,12 @@ class PostsController < ApplicationController
     @group = Group.find(params[:group_id])
     @post = @group.posts.new
   end
-  
+
+  def edit
+    @group = Group.find(params[:group_id])
+    @post = @group.posts.find(params[:id])
+  end
+
   def create
     @group = Group.find(params[:group_id])
     @post = @group.posts.build(post_params)
