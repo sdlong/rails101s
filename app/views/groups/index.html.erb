@@ -17,8 +17,10 @@
           <td><%= link_to(group.title, group_path(group)) %></td>
           <td><%= group.description %></td>
           <td>
-            <%= link_to("Edit", edit_group_path(group), class: "btn btn-sm btn-default")%>
-            <%= link_to("Delete", group_path(group),class: "btn btn-sm btn-default", method: :delete, data: { confirm: "Are you sure?" } )%>
+            <% if current_user && group.editable_by?(current_user) %>
+              <%= link_to("Edit", edit_group_path(group), class: "btn btn-sm btn-default")%>
+              <%= link_to("Delete", group_path(group),class: "btn btn-sm btn-default", method: :delete, data: { confirm: "Are you sure?" } )%>
+            <% end %>
           </td>
         </tr>
       <% end %>
