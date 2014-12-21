@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   root "groups#index"
   resources :groups do
     resources :posts, except: [:show, :index]
+
+    member do
+      post :join
+      post :quit
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
