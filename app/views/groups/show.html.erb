@@ -1,5 +1,6 @@
 <div class="col-md-12">
   <div class="group">
+    <%= link_to("New Post", new_group_post_path(@group), class: "btn btn-warning pull-right")%>
     <%= link_to("Edit", edit_group_path(@group), class: "btn btn-primary pull-right")%>
   </div>
   <h2><%= @group.title %></h2>
