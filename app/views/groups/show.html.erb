@@ -2,6 +2,14 @@
   <div class="group">
     <%= link_to("New Post", new_group_post_path(@group), class: "btn btn-warning pull-right")%>
     <%= link_to("Edit", edit_group_path(@group), class: "btn btn-primary pull-right")%>
+    <% if current_user.present? %>
+      <% if current_user.is_member_of?(@group) %>
+        <%= link_to("Quit Group", quit_group_path(@group), method: :post, class: "btn btn-danger") %>
+      <% else %>
+        <%= link_to("Join Group", join_group_path(@group), method: :post, class: "btn btn-info") %>
+      <% end %>
+    <% end %>
+
   </div>
   <h2><%= @group.title %></h2>
   <p><%= @group.description %></p>
