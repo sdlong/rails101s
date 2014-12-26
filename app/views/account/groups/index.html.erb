@@ -14,7 +14,7 @@
       <% @groups.each do |group| %>
         <tr>
           <td>#</td>
-          <td><%= link_to(group.title, group_path(group)) %></td>
+          <td><%= link_to(truncate(group.title, :length => 15 ), group_path(group)) %></td>
           <td><%= group.description %></td>
           <td><%= group.posts.size %></td>
           <td><%= group.updated_at %></td>
