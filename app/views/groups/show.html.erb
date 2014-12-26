@@ -24,7 +24,7 @@
     <tbody>
       <% @posts.each do |post| %>
         <tr>
-          <td><%= post.content %></td>
+          <td><%= render_post_content(post) %></td>
           <td>
             <% if current_user && post.editable_by?(current_user) %>
               <%= link_to("Edit", edit_group_post_path(post.group, post), class: "btn btn-default btn-xs")%>
