@@ -2,11 +2,5 @@
   <h1>修改討論版</h1>
 
   <hr>
-  <%= simple_form_for @group do |f| %>
-    <div class="form-group">
-      <%= f.input :title, input_html: { class: "form-control"} %>
-      <%= f.input :description, input_html: { class: "form-control"} %>
-    </div>
-    <%= f.submit "Submit", disable_with: 'Submitting...', class: "btn btn-primary"%>
-  <% end %>
+  <%= render "form", group: @group %>
 </div>
