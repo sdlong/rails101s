@@ -43,7 +43,7 @@ group :development do
   gem "capistrano-rvm", "~> 0.1.1", require: false
   gem "capistrano-rails", "~> 1.1", require: false
   gem "capistrano-rbenv", "~> 2.0", require: false # production server use rbenv
-  gem 'capistrano-unicorn', :require => false
+  gem "capistrano3-unicorn", github: "techbang/capistrano3-unicorn", require: false
 end
 
 group :production do
