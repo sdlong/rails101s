@@ -26,6 +26,8 @@ Rails 101 裡面的 Code 的真正價值！
 
 ---
 
+test
+
 
 ![Rails Outreach](public/rails_outreach_icon.png)
 
