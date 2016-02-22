@@ -1,0 +1,38 @@
+<div class="col-md-12">
+  <div class="group">
+    <%= link_to("New Post", new_group_post_path(@group), class: "btn btn-warning pull-right")%>
+    <%= link_to("Edit", edit_group_path(@group), class: "btn btn-primary pull-right") if @group.editable_by?(current_user) %>
+    <% if current_user.present? %>
+      <% if current_user.is_member_of?(@group) %>
+        <%= link_to("Quit Group", quit_group_path(@group), method: :post, class: "btn btn-danger") %>
+      <% else %>
+        <%= link_to("Join Group", join_group_path(@group), method: :post, class: "btn btn-info") %>
+      <% end %>
+    <% end %>
+
+  </div>
+  <h2><%= @group.title %></h2>
+  <p><%= @group.description %></p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>文章</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= render_post_content(post) %></td>
+          <td>
+            <% if current_user && post.editable_by?(current_user) %>
+              <%= link_to("Edit", edit_group_post_path(post.group, post), class: "btn btn-default btn-xs")%>
+              <%= link_to("Delete", group_post_path(post.group, post), class: "btn btn-default btn-xs ", method: :delete, data: { confirm: "Are you sure?" } )%>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

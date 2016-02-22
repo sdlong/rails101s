@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -12,7 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -23,14 +23,32 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem "bootstrap-sass"
+gem "simple_form", "~> 3.1.0.rc2", github: "plataformatec/simple_form", branch: "master"
+gem "devise", "~> 3.4.1"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+group :development do
+  gem "brakeman", require: false
+  gem "rails_best_practices", require: false
+  gem "sqlite3"
+  gem "capistrano",  "~> 3.1", require: false
+  gem "capistrano-rvm", "~> 0.1.1", require: false
+  gem "capistrano-rails", "~> 1.1", require: false
+  gem "capistrano-rbenv", "~> 2.0", require: false # production server use rbenv
+  gem "capistrano3-unicorn", github: "techbang/capistrano3-unicorn", require: false
+end
+
+group :production do
+  gem "mysql2"
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
