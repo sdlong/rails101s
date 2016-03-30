@@ -42,6 +42,9 @@ end
 group :development do
   gem "brakeman", require: false
   gem "rails_best_practices", require: false
+  gem "capistrano",  "~> 3.4"
+  gem "capistrano-rvm"
+  gem "capistrano-rails"
 end
 
 group :development, :test do
