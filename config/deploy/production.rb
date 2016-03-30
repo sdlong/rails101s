@@ -17,9 +17,10 @@
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-# role :app, %w{deploy@example.com}, my_property: :my_value
-# role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
-# role :db,  %w{deploy@example.com}
+# 你設定的 deploy 用帳號 & ip ( 本教材的 ip 是範例 )
+role :app, %w{apps@139.162.37.149}
+role :web, %w{apps@139.162.37.149}
+role :db,  %w{apps@139.162.37.149}
 
 
 
